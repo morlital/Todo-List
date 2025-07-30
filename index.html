@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <form id="project-form">
+            <input type="text" id="project-name" placeholder="New project name" required />
+            <button class = "add" type="submit">+</button>
+          </form>
+          <div class="today-tab">📅 Today</div>
+          <div class="project-list"></div>
+        </div>
+    
+        <!-- Main Content -->
+        <div class="main">
+          <form id="todo-form">
+            <input type="text" id="todo-title" placeholder="Todo title" required />
+            <input type="text" id="todo-description" placeholder="Description" />
+            <input type="date" id="todo-dueDate" required />
+            <select id="todo-priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+            <button class = "add" type="submit">+</button>
+          </form>
+          <div class="todo-list"></div>
+        </div>
+    </div>
+</body>
+</html>
