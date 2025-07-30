@@ -51,7 +51,7 @@ class ProjectManager {
 
         if(savedProjects) {
             this.projects = JSON.parse(savedProjects).map(projectDate => {
-                const project = new Project(projectDate.name);
+                const project = new Project(projectDate.name, projectDate.isAbleToDelete);
                 project.id = projectDate.id;
                 project.todos = projectDate.todos.map(todoData => {
                     const todo = new Todo(

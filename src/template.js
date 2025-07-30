@@ -5,7 +5,7 @@ import { renderProjects, renderTodos, manager } from "./dom.js";
 manager.load();
 
 if (manager.getAllProjects().length === 0) {
-  const defaultProject = new Project('General');
+  const defaultProject = new Project('General', false);
   manager.addProject(defaultProject);
 }
 

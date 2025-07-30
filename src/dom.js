@@ -48,18 +48,20 @@ const renderProjects = () => {
       renderTodos();
     });
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "🗑️";
-    deleteBtn.classList.add("delete-project");
-    deleteBtn.addEventListener("click", () => {
-      manager.removeProject(project.id);
-      manager.save();
-      renderProjects();
-      renderTodos();
-    }); 
-
     div.appendChild(nameSpan);
-    div.appendChild(deleteBtn);
+    if (project.isAbleToDelete) {
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "🗑️";
+      deleteBtn.classList.add("delete-project");
+      deleteBtn.addEventListener("click", () => {
+        manager.removeProject(project.id);
+        manager.save();
+        renderProjects();
+        renderTodos();
+      });
+      div.appendChild(deleteBtn);
+    }
+    
     projectListContainer.appendChild(div);
   });
 };
@@ -270,7 +272,7 @@ projectForm.addEventListener("submit", (e) => {
   const name = projectInput.value.trim();
   if (!name) return;
 
-  const newProject = new Project(name);
+  const newProject = new Project(name, true);
   manager.addProject(newProject);
   manager.save();
   projectInput.value = "";

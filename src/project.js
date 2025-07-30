@@ -1,9 +1,10 @@
 
 class Project {
-    constructor(name) {
+    constructor(name, isAbleToDelete) {
         this.id = generateUUID(); 
         this.name = name;
         this.todos = [];
+        this.isAbleToDelete = isAbleToDelete;
     }
 
     addTodo(todo) {
